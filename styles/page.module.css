@@ -1,0 +1,122 @@
+@font-face {
+  font-family: 'LufgaBlack';
+  font-display: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  src: url("../assests/fonts/Calming.ttf")
+}
+
+
+.main {
+    /* background-color: aqua; */
+    height: 150vh;
+    width: 150vw;
+    margin: auto;
+    padding: 3rem;
+}
+
+.display {
+    margin-top: 20px;
+    position: relative;
+    max-width: 400px;
+    min-height: 240px;
+    background-color:#f1f1f1;
+    border-radius: 10px;
+    box-shadow:  rgba(0, 0, 0, 0.3) 0px 8px 30px 0px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .displayBar {
+    background-color: #f1f1f1;
+    border-top-right-radius: 10px ;
+    border-top-left-radius: 10px ;
+    height: 45px;
+    display: flex;
+    padding: 4px;
+  }
+  
+  .displayBarIcons {
+    display: flex;
+    margin: auto;
+    height: 15px;
+    /* background-color: aqua; */
+    width: 55px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .displayBarIcon {
+    background-color: #bfbdbd;
+    border-radius: 20px;
+    width: 10.5px;
+    height: 10.5px;
+    margin: auto;
+    margin-left: 4px;
+    margin-right: 4px;
+    display: flex;
+  }
+  
+  .displayBarSearchBox {
+    display: flex;
+    margin: auto;
+    height: 30px;
+    width: 70%;
+    border-radius: 5px;
+    color:#000000 ;
+    padding: 5px;
+    align-items: center;
+    font-size: 12px;
+    background-color: #ffffff;
+  }
+  
+  .displayBarArrow {
+    display: flex;
+    margin: auto;
+  }
+  
+  .notes {
+    display: inherit;
+    justify-content:space-around;
+    align-items: inherit;
+    padding: 15px;
+    position: relative;
+    height: 100%;
+  }
+  
+  .notesHeader {
+    font-size:24px;
+    justify-content:space-between;
+    display: flex;
+    font-weight: 700;
+    color: #666666;
+    font-family: "LufgaBlack";
+  }
+  
+  .notes p {
+    color: #666666;
+    font-size: 14px;
+    margin-top: 22px;
+    line-height: 25px;
+    font-weight: 700;
+    font-family: "LufgaBlack";
+  }
+  
+  .notes li {
+    color: #666666;
+    font-size: 14px;
+    font-family: "LufgaBlack";
+    /* list-style:georgian; */
+    margin-top: 15px;
+    line-height: 25px;
+    font-weight: 700;
+  }
+  
+  .code {
+    background-color: rgb(220, 220, 220);
+    padding: 5px;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 5px;
+    border-radius: 6px;
+  }

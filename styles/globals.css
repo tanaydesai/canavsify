@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:rgb(243, 239, 239);
+    justify-content: center;
+    align-items: center;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+  }
