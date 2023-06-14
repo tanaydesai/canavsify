@@ -1,55 +1,54 @@
 "use client"
-import Image from 'next/image'
-import pic from '../assests/images/pic.jpg'
 import styles from '@/styles/page.module.css'
-import {motion} from 'framer-motion'
-import React, {useState} from 'react'
-import {AiOutlineArrowRight} from 'react-icons/ai'
+import React, {useState, useRef, useEffect} from 'react'
+import useWindowSize from "@rooks/use-window-size"
+
+import NotesTab from '@/components/tabs/notesTab'
+import SafariTab from '@/components/tabs/safariTab'
+import { safariTabTexts, notesTabTexts } from '@/components/content/text'
+
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const { innerWidth, innerHeight, outerHeight, outerWidth } = useWindowSize();
+  const targetRef = useRef(null);
+
+  const scrollToTarget = () => {
+      const element = targetRef.current;
+      if (element) {
+        const { top, left, height, width } = element.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        const offsetTop = top + scrollTop - (viewportHeight - height) / 2;
+        const offsetLeft = left + scrollLeft - (viewportWidth - width) / 2;
+        window.scrollTo({
+          top: offsetTop,
+          left: offsetLeft,
+          behavior: 'smooth',})
+      }
+    }
+  useEffect(() => {
+    scrollToTarget()
+    const down = (e) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        scrollToTarget()
+      }
+    }
+    document.addEventListener('keydown', down)
+    return () => {document.removeEventListener('keydown', down)}
+  }, [])
 
   return (
-    <div className={styles.main}>
-        <motion.div drag dragMomentum={false}  className={styles.display} style={{borderRadius:"5px"}}>
-          <div className={styles.notes}>
-          <div className={styles.notesHeader}>Made With ❤️ by {isOpen ? "Tanay" : "Veer"}</div>
-          </div>
-          <button onClick={() => setIsOpen(!isOpen)}>Click Me</button>
-        </motion.div>
+    <div ref={targetRef} className={styles.main}>
+      {notesTabTexts.map((tab, index) => (
+         <NotesTab text={tab.text} x={tab.x} y={tab.y} deg={tab.deg} drag={tab.drag} />
+      ))}
 
-        <motion.div drag dragMomentum={false} className={styles.display} style={{x:400}}>
-          <div className={styles.displayBar}>
-            <div className={styles.displayBarIcons}>
-              <div className={styles.displayBarIcon} style={{backgroundColor: '#FF605C'}}></div>
-              <div className={styles.displayBarIcon} style={{backgroundColor: '#FFBD44'}}></div>
-              <div className={styles.displayBarIcon} style={{backgroundColor: '#00CA4E'}}></div>
-            </div>
-            <div className={styles.displayBarSearchBox}>Explore AI</div>
-            <div className={styles.displayBarArrow}><AiOutlineArrowRight size={20}/></div>
-          </div>
-          <div className={styles.notes}>
-              <p>Musk was born in Pretoria, South Africa, and briefly attended the University of Pretoria before moving to Canada at age 18, acquiring citizenship through his Canadian-born mother.</p>
-              <li><code className={styles.code}>npm run dev</code> + <code className={styles.code}>K</code> for center stage.</li>
-              <li>Press arrows/search-bar for Demo + Docs.</li>
-              <p> Two years later, he matriculated at Queen's University and transferred to the University of Pennsylvania.</p>
-          </div>
-        </motion.div>
-
-        {isOpen && <motion.div drag dragMomentum={false} className={styles.display} style={{x:400}}>
-          <div className={styles.displayBar}>
-            <div className={styles.displayBarIcons}>
-              <div className={styles.displayBarIcon} style={{backgroundColor: '#FF605C'}}></div>
-              <div className={styles.displayBarIcon} style={{backgroundColor: '#FFBD44'}}></div>
-              <div className={styles.displayBarIcon} style={{backgroundColor: '#00CA4E'}}></div>
-            </div>
-            <div className={styles.displayBarSearchBox}>Explore AI</div>
-            <div className={styles.displayBarArrow}></div>
-          </div>
-         <Image src={pic} width={400} height={310}></Image>
-        </motion.div>}
-
-
+      {safariTabTexts.map((tab, index) => (
+         <SafariTab  name={tab.name} drag={tab.drag} text={tab.text} x={tab.x} y={tab.y}/>
+      ))}
     </div>
   )
 }

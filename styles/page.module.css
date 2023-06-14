@@ -1,19 +1,28 @@
 @font-face {
-  font-family: 'LufgaBlack';
-  font-display: auto;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  src: url("../assests/fonts/Calming.ttf")
-}
-
+    font-family: 'LufgaBlack';
+    font-display: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    src: url("../assests/fonts/LufgaLight.ttf")
+  }
+  
 
 .main {
-    /* background-color: aqua; */
-    height: 150vh;
+    height: 100%;
     width: 150vw;
     margin: auto;
     padding: 3rem;
+    /* background-color: aqua; */
 }
+
+
+@media screen and (max-width: 768px) {
+    .main {
+        width: 300vw;
+        /* background-color: red; */
+    }
+}
+
 
 .display {
     margin-top: 20px;
@@ -119,4 +128,34 @@
     font-size: 14px;
     margin: 5px;
     border-radius: 6px;
+  }
+
+  .social {
+    display: flex;
+    width: 100px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    height: 30px;
+    margin-left: 5px;
+    color: rgb(255, 255, 255);
+    /* border-radius: 7px; */
+    background-color:#000000;
+    box-shadow: 0 0 0 0 rgba(7, 0, 0, 0.5);
+    animation: pulse 1.75s infinite cubic-bezier(0.26, 0, 0, 0.5);
+  }
+  
+  .social a {
+    display: flex;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  @keyframes pulse {
+    to {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
   }

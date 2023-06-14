@@ -13,3 +13,14 @@ body {
 body::-webkit-scrollbar{
     display: none;
   }
+
+
+@media screen and (max-height: 900px) {
+    body {
+        height: 150vh;
+        /* background-color: rgb(174, 96, 0);   */
+    }
+    html {
+        height: 150vh;
+    }
+}
