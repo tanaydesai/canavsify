@@ -5,7 +5,8 @@ import useWindowSize from "@rooks/use-window-size"
 
 import NotesTab from '@/components/tabs/notesTab'
 import SafariTab from '@/components/tabs/safariTab'
-import { safariTabTexts, notesTabTexts } from '@/components/content/text'
+import PicTab from '@/components/tabs/picTab'
+import { safariTabTexts, notesTabTexts, picTabTexts } from '@/components/content/text'
 
 
 const Home = () => {
@@ -42,13 +43,20 @@ const Home = () => {
 
   return (
     <div ref={targetRef} className={styles.main}>
+      
       {notesTabTexts.map((tab, index) => (
-         <NotesTab text={tab.text} x={tab.x} y={tab.y} deg={tab.deg} drag={tab.drag} />
+         <NotesTab text={tab.text} name={tab.name} key={index} x={tab.x} y={tab.y} deg={tab.deg} drag={tab.drag} />
       ))}
 
       {safariTabTexts.map((tab, index) => (
-         <SafariTab  name={tab.name} drag={tab.drag} text={tab.text} x={tab.x} y={tab.y}/>
+         <SafariTab  name={tab.name}  key={index} drag={tab.drag} text={tab.text} x={tab.x} y={tab.y}/>
       ))}
+
+      {picTabTexts.map((tab, index) => (
+         <PicTab key={index} drag={tab.drag} width={tab.width} height={tab.height} pic={tab.pic} x={tab.x} y={tab.y}/>
+      ))}
+
+      
     </div>
   )
 }
