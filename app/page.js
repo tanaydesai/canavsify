@@ -8,7 +8,6 @@ import SafariTab from '@/components/tabs/safariTab'
 import PicTab from '@/components/tabs/picTab'
 import { safariTabTexts, notesTabTexts, picTabTexts } from '@/components/content/text'
 
-
 const Home = () => {
   const { innerWidth, innerHeight, outerHeight, outerWidth } = useWindowSize();
   const targetRef = useRef(null);
@@ -45,7 +44,7 @@ const Home = () => {
     <div ref={targetRef} className={styles.main}>
       
       {notesTabTexts.map((tab, index) => (
-         <NotesTab text={tab.text} name={tab.name} key={index} x={tab.x} y={tab.y} deg={tab.deg} drag={tab.drag} />
+         <NotesTab text={tab.text} link={tab.link} name={tab.name} key={index} x={tab.x} y={tab.y} deg={tab.deg} drag={tab.drag} />
       ))}
 
       {safariTabTexts.map((tab, index) => (
@@ -53,9 +52,8 @@ const Home = () => {
       ))}
 
       {picTabTexts.map((tab, index) => (
-         <PicTab key={index} drag={tab.drag} width={tab.width} height={tab.height} pic={tab.pic} x={tab.x} y={tab.y}/>
+         <PicTab key={index} drag={tab.drag} link={tab.link} width={tab.width} height={tab.height} pic={tab.pic} x={tab.x} y={tab.y}/>
       ))}
-
       
     </div>
   )
