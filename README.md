@@ -3,22 +3,49 @@ This is a customizable portfolio website template that allows anyone to easily c
 
 ## Instructions
 
-To customize the content of your portfolio website, follow these steps:
+To customize the content of your portfolio canvas, follow these steps:
 
 1. Navigate to the `components` folder.
 2. Open the `content.js` file.
 3. Locate the `safariTabs`, `notesTabs`, and `picTabs` arrays.
 
-```jsx
-// Example safariTabs array
+```js
+// Example safariTabs array (For your Porjects)
 const safariTabs = [
   {
-    title: 'About',
-    content: 'Add your about information here.',
-  },
+    name: "Explore AI",
+    text:  <ExploreAI />,
+    x:-350,
+    y:-200,
+    drag: true
+},
+  // Add more tabs as needed
+];
+
+// Example notesTabs array (For normal Notes)
+const notesTabs = [
   {
-    title: 'Projects',
-    content: 'Add your projects information here.',
-  },
+    name:"notes.txt",
+    text:"This canvas is open source. Feel free to use it for your own personal websites.", // Can be a component too
+    x:-450,
+    link:"https://github.com/TanayDesai/canvasify",
+    y:400,
+    drag: false,
+    deg:"-5",
+    },
+  // Add more tabs as needed
+];
+
+// Example picTabs array (For Art/Photography/Any photo really)
+const picTabs = [
+  { 
+    pic: pic3,
+    link: "https://tanaydesai5.wixsite.com/tanaydesai",
+    width:150,
+    height:150,
+    x:-100,
+    y:-200,
+    drag: true,
+}
   // Add more tabs as needed
 ];
