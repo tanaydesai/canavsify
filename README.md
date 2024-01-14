@@ -59,5 +59,6 @@ const picTabs = [
 }
   // Add more tabs as needed
 ];
+```
 
 Then you can connect it to your vercel project!
