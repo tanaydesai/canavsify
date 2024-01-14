@@ -1,7 +1,17 @@
+
+![pic](demo.png)
+
+
 # Canvasify
+
 This is a customizable portfolio website template that allows anyone to easily create their own portfolio canvas. You can edit and add the content you want by modifying the values in the `safariTabs`, `notesTabs`, and `picTabs` arrays in the `content.js` file located in the `components` folder.
 
 ## Instructions
+First install this repo:
+
+```bash
+git clone https://github.com/tanaydesai/canavsify.git
+```
 
 To customize the content of your portfolio canvas, follow these steps:
 
@@ -49,3 +59,5 @@ const picTabs = [
 }
   // Add more tabs as needed
 ];
+
+Then you can connect it to your vercel project!
